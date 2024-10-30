@@ -1,6 +1,6 @@
 package entry.dsm.equusrecruitment.domain.global.error.exception
 
-abstract class EntryBlogException(
+abstract class RecruitmentException(
     val errorCode: ErrorCode,
 ) : RuntimeException() {
     val statusCode: Int
