@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/application")
-class ApplicationController (
-    private val internApplicationService: InternApplicationService
+class ApplicationController(
+    private val internApplicationService: InternApplicationService,
 ) {
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/register")
-    fun internApplication(@RequestBody @Valid request: InternApplicationRequest) {
+    fun internApplication(
+        @RequestBody @Valid request: InternApplicationRequest,
+    ) {
         internApplicationService.application(request)
     }
 }

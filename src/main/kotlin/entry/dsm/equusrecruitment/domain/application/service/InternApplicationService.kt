@@ -8,8 +8,8 @@ import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 
 @Service
-class InternApplicationService (
-    private val applicationRepository: ApplicationRepository
+class InternApplicationService(
+    private val applicationRepository: ApplicationRepository,
 ) {
     @Transactional
     fun application(request: InternApplicationRequest) {
@@ -25,8 +25,8 @@ class InternApplicationService (
                     introduce = request.introduce,
                     interestingMajor = request.interestingMajor,
                     motivation = request.motivation,
-                    experience = request.experience
-                )
+                    experience = request.experience,
+                ),
             )
         }
     }

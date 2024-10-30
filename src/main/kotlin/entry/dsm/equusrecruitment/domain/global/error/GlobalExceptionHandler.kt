@@ -21,23 +21,25 @@ class GlobalExceptionHandler {
                 400,
                 e.bindingResult.allErrors[0].defaultMessage ?: "Unknown error",
             ),
-            HttpStatus.BAD_REQUEST
+            HttpStatus.BAD_REQUEST,
         )
     }
 
     @ExceptionHandler(Exception::class)
     fun globalExceptionHandler(e: Exception): ResponseEntity<ErrorResponse> {
-        val httpStatus = when(e) {
-            is IllegalArgumentException -> HttpStatus.BAD_REQUEST
-            is IllegalStateException -> HttpStatus.BAD_REQUEST
-            is AccessDeniedException -> HttpStatus.FORBIDDEN
-            else -> HttpStatus.INTERNAL_SERVER_ERROR
-        }
+        val httpStatus =
+            when (e) {
+                is IllegalArgumentException -> HttpStatus.BAD_REQUEST
+                is IllegalStateException -> HttpStatus.BAD_REQUEST
+                is AccessDeniedException -> HttpStatus.FORBIDDEN
+                else -> HttpStatus.INTERNAL_SERVER_ERROR
+            }
 
-        val errorResponse = ErrorResponse(
-            statusCode = httpStatus.value(),
-            message = e.localizedMessage ?: "Unknown error",
-        )
+        val errorResponse =
+            ErrorResponse(
+                statusCode = httpStatus.value(),
+                message = e.localizedMessage ?: "Unknown error",
+            )
 
         return ResponseEntity(errorResponse, httpStatus)
     }

@@ -4,13 +4,13 @@ import entry.dsm.equusrecruitment.domain.global.error.exception.EntryBlogExcepti
 
 class ErrorResponse(
     val statusCode: Int,
-    val message: String
+    val message: String,
 ) {
     companion object {
         fun of(e: EntryBlogException): ErrorResponse {
             return ErrorResponse(
                 statusCode = e.statusCode,
-                message = e.message
+                message = e.message,
             )
         }
     }
