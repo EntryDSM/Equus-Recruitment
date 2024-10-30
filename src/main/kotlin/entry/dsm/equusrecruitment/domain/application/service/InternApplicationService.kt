@@ -19,13 +19,13 @@ class InternApplicationService(
         request.run {
             applicationRepository.save(
                 Application(
-                    name = request.name,
-                    schoolNumber = request.schoolNumber,
-                    phoneNumber = request.phoneNumber,
-                    introduce = request.introduce,
-                    interestingMajor = request.interestingMajor,
-                    motivation = request.motivation,
-                    experience = request.experience,
+                    name = name,
+                    schoolNumber = schoolNumber,
+                    phoneNumber = phoneNumber,
+                    introduce = introduce,
+                    interestingMajor = interestingMajor,
+                    motivation = motivation,
+                    experience = experience,
                 ),
             )
         }
