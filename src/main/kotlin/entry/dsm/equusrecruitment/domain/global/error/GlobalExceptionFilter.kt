@@ -1,7 +1,7 @@
 package entry.dsm.equusrecruitment.domain.global.error
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import entry.dsm.equusrecruitment.domain.global.error.exception.EntryBlogException
+import entry.dsm.equusrecruitment.domain.global.error.exception.RecruitmentException
 import entry.dsm.equusrecruitment.domain.global.exception.InternalServerError
 import io.sentry.Sentry
 import jakarta.servlet.FilterChain
@@ -26,7 +26,7 @@ class GlobalExceptionFilter(
         } catch (e: Exception) {
             Sentry.captureException(e)
             when (e) {
-                is EntryBlogException -> writerErrorCode(response, e)
+                is RecruitmentException -> writerErrorCode(response, e)
                 else -> writerErrorCode(response, InternalServerError)
             }
         }
@@ -35,7 +35,7 @@ class GlobalExceptionFilter(
     @Throws(IOException::class)
     private fun writerErrorCode(
         response: HttpServletResponse,
-        exception: EntryBlogException,
+        exception: RecruitmentException
     ) {
         val errorResponse = ErrorResponse(exception.statusCode, exception.message)
         response.status = exception.statusCode

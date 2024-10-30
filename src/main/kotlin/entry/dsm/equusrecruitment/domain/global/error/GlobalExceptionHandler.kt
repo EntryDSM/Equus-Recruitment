@@ -1,6 +1,6 @@
 package entry.dsm.equusrecruitment.domain.global.error
 
-import entry.dsm.equusrecruitment.domain.global.error.exception.EntryBlogException
+import entry.dsm.equusrecruitment.domain.global.error.exception.RecruitmentException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 
 @RestControllerAdvice
 class GlobalExceptionHandler {
-    @ExceptionHandler(EntryBlogException::class)
-    fun customExceptionHandler(e: EntryBlogException): ResponseEntity<ErrorResponse> {
+    @ExceptionHandler(RecruitmentException::class)
+    fun customExceptionHandler(e: RecruitmentException): ResponseEntity<ErrorResponse> {
         return ResponseEntity(ErrorResponse.of(e), HttpStatus.valueOf(e.statusCode))
     }
 
