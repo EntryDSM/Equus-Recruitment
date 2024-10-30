@@ -23,7 +23,7 @@ class Application(
     val phoneNumber: String,
     @Column(columnDefinition = "TEXT", nullable = false)
     val introduce: String,
-    @Column(columnDefinition = "varchar(15)", nullable = false)
+    @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
     val interestingMajor: Major,
     @Column(columnDefinition = "TEXT", nullable = false)
