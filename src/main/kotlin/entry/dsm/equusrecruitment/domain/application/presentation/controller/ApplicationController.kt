@@ -16,7 +16,7 @@ class ApplicationController(
     private val internApplicationService: InternApplicationService,
 ) {
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/register")
+    @PostMapping
     fun internApplication(
         @RequestBody @Valid request: InternApplicationRequest,
     ) {
