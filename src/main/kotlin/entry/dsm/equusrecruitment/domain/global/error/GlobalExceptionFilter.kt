@@ -38,9 +38,11 @@ class GlobalExceptionFilter(
         exception: RecruitmentException
     ) {
         val errorResponse = ErrorResponse(exception.statusCode, exception.message)
-        response.status = exception.statusCode
-        response.characterEncoding = StandardCharsets.UTF_8.name()
-        response.contentType = MediaType.APPLICATION_JSON_VALUE
-        response.writer.write(objectMapper.writeValueAsString(errorResponse))
+        response.apply {
+            status = exception.statusCode
+            characterEncoding = StandardCharsets.UTF_8.name()
+            contentType = MediaType.APPLICATION_JSON_VALUE
+            writer.write(objectMapper.writeValueAsString(errorResponse))
+        }
     }
 }
