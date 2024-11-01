@@ -41,6 +41,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("io.sentry:sentry-spring-boot-starter:6.0.0")
     testImplementation("io.mockk:mockk:1.12.0")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    testImplementation("org.springframework.security:spring-security-test")
 }
 
 kotlin {
