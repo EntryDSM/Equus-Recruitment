@@ -20,6 +20,6 @@ class ApplicationController(
     fun internApplication(
         @RequestBody @Valid request: InternApplicationRequest,
     ) {
-        internApplicationService.application(request)
+        internApplicationService.applicationRegister(request)
     }
 }

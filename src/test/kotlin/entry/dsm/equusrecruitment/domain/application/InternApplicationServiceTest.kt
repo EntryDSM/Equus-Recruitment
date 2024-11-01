@@ -42,7 +42,7 @@ class InternApplicationServiceTest {
         println("테스트 시작")
 
         val exception = assertFailsWith<ApplicationAlreadyExistException> {
-            internApplicationService.application(request)
+            internApplicationService.applicationRegister(request)
         }
 
         println("예외 발생 확인: ${exception.message}")
@@ -75,7 +75,7 @@ class InternApplicationServiceTest {
             experience = request.experience
         )
 
-         internApplicationService.application(request)
+         internApplicationService.applicationRegister(request)
 
         verify(exactly = 1) { applicationRepository.findBySchoolNumber(request.schoolNumber) }
         verify(exactly = 1) { applicationRepository.save(any()) }
