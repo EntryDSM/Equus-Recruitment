@@ -40,6 +40,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("io.sentry:sentry-spring-boot-starter:6.0.0")
+    testImplementation("io.mockk:mockk:1.12.0")
 }
 
 kotlin {
