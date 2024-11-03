@@ -1,4 +1,4 @@
-package entry.dsm.equusrecruitment.domain.global.error.exception
+package entry.dsm.equusrecruitment.global.error.exception
 
 enum class ErrorCode(
     val statusCode: Int,

@@ -1,4 +1,4 @@
-package entry.dsm.equusrecruitment.domain.global.config
+package entry.dsm.equusrecruitment.global.config
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Configuration

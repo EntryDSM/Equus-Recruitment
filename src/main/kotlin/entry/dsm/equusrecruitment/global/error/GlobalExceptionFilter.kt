@@ -1,8 +1,8 @@
-package entry.dsm.equusrecruitment.domain.global.error
+package entry.dsm.equusrecruitment.global.error
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import entry.dsm.equusrecruitment.domain.global.error.exception.RecruitmentException
-import entry.dsm.equusrecruitment.domain.global.exception.InternalServerError
+import entry.dsm.equusrecruitment.global.error.exception.RecruitmentException
+import entry.dsm.equusrecruitment.global.exception.InternalServerError
 import io.sentry.Sentry
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest

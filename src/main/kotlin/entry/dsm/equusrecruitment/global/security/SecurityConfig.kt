@@ -1,4 +1,4 @@
-package entry.dsm.equusrecruitment.domain.global.security
+package entry.dsm.equusrecruitment.global.security
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

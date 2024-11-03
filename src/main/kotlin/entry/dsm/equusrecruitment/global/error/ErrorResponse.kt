@@ -1,6 +1,6 @@
-package entry.dsm.equusrecruitment.domain.global.error
+package entry.dsm.equusrecruitment.global.error
 
-import entry.dsm.equusrecruitment.domain.global.error.exception.RecruitmentException
+import entry.dsm.equusrecruitment.global.error.exception.RecruitmentException
 
 class ErrorResponse(
     val statusCode: Int,

@@ -1,4 +1,4 @@
-package entry.dsm.equusrecruitment.domain.global.error.exception
+package entry.dsm.equusrecruitment.global.error.exception
 
 abstract class RecruitmentException(
     val errorCode: ErrorCode,
