@@ -8,11 +8,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @Configuration
 class WebMvcConfig : WebMvcConfigurer {
     @Value("\${frontend.url}")
-    private val url = ""
+    private lateinit var frontendUrl: String
 
     override fun addCorsMappings(registry: CorsRegistry) {
         registry.addMapping("/**")
-            .allowedOrigins(url)
+            .allowedOrigins(frontendUrl)
             .allowedMethods("*")
             .allowedHeaders("POST")
     }
