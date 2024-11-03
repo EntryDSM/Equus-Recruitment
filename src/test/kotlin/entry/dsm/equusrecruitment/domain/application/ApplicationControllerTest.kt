@@ -44,7 +44,7 @@ class ApplicationControllerTest {
             )
 
         mockMvc.perform(
-            MockMvcRequestBuilders.post("/application")
+            MockMvcRequestBuilders.post("/applications")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request))
                 .with(csrf()),
