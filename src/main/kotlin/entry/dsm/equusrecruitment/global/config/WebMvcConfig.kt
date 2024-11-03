@@ -7,12 +7,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
 class WebMvcConfig : WebMvcConfigurer {
-
     @Value("\${frontend.url}")
     private val url = ""
 
     override fun addCorsMappings(registry: CorsRegistry) {
-
         registry.addMapping("/**")
             .allowedOrigins(url)
             .allowedMethods("*")

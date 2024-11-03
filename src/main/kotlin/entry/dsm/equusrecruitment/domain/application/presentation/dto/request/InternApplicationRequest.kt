@@ -16,7 +16,7 @@ data class InternApplicationRequest(
     @field:NotNull(message = "전화번호는 필수 입력 항목입니다")
     @field:Pattern(
         regexp = "^010-\\d{4}-\\d{4}$",
-        message = "올바른 전화번호 형식이 아닙니다. ex): 010-1234-5678"
+        message = "올바른 전화번호 형식이 아닙니다. ex): 010-1234-5678",
     )
     val phoneNumber: String,
     @field:NotBlank

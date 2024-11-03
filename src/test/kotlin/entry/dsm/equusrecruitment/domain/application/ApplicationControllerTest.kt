@@ -21,7 +21,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @WebMvcTest(ApplicationController::class)
 @AutoConfigureMockMvc(addFilters = false)
 class ApplicationControllerTest {
-
     @Autowired
     private lateinit var mockMvc: MockMvc
 
@@ -33,24 +32,27 @@ class ApplicationControllerTest {
 
     @Test
     fun `return 400 status bad phoneNumber`() {
-        val request = InternApplicationRequest(
-            name = "홍길동",
-            schoolNumber = 1204,
-            phoneNumber = "01012345678",
-            introduce = "저는 자신감이 넘치는 1학년 홍길동입니다",
-            interestingMajor = Major.BACKEND,
-            motivation = "백엔드를 누구보다 잘하기 위해",
-            experience = Experience.HIGH
-        )
+        val request =
+            InternApplicationRequest(
+                name = "홍길동",
+                schoolNumber = 1204,
+                phoneNumber = "01012345678",
+                introduce = "저는 자신감이 넘치는 1학년 홍길동입니다",
+                interestingMajor = Major.BACKEND,
+                motivation = "백엔드를 누구보다 잘하기 위해",
+                experience = Experience.HIGH,
+            )
 
         mockMvc.perform(
             MockMvcRequestBuilders.post("/application")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request))
-                .with(csrf())
+                .with(csrf()),
         )
             .andExpect(status().isBadRequest)
-            .andExpect(jsonPath("$.message")
-                .value("올바른 전화번호 형식이 아닙니다. ex): 010-1234-5678"))
+            .andExpect(
+                jsonPath("$.message")
+                    .value("올바른 전화번호 형식이 아닙니다. ex): 010-1234-5678"),
+            )
     }
 }

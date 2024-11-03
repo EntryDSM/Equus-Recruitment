@@ -35,7 +35,7 @@ class GlobalExceptionFilter(
     @Throws(IOException::class)
     private fun writerErrorCode(
         response: HttpServletResponse,
-        exception: RecruitmentException
+        exception: RecruitmentException,
     ) {
         val errorResponse = ErrorResponse(exception.statusCode, exception.message)
         response.apply {
