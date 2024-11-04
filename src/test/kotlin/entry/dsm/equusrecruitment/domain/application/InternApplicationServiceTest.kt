@@ -30,16 +30,7 @@ class InternApplicationServiceTest {
                 experience = Experience.HIGH,
             )
 
-        every { applicationRepository.findBySchoolNumber(request.schoolNumber) } returns
-            Application(
-                name = "김사또",
-                schoolNumber = 1204,
-                phoneNumber = "010-9876-5432",
-                introduce = "저는 자신감이 넘치는 1학년 김사또입니다.",
-                interestingMajor = Major.FRONTEND,
-                motivation = "프론트엔드를 누구보다 잘하기 위해",
-                experience = Experience.LOW,
-            )
+        every { applicationRepository.existsBySchoolNumber(request.schoolNumber) } returns true
 
         println("테스트 시작")
 
@@ -50,7 +41,7 @@ class InternApplicationServiceTest {
 
         println("예외 발생 확인: ${exception.message}")
 
-        verify(exactly = 1) { applicationRepository.findBySchoolNumber(request.schoolNumber) }
+        verify(exactly = 1) { applicationRepository.existsBySchoolNumber(request.schoolNumber) }
     }
 
     @Test
@@ -66,7 +57,7 @@ class InternApplicationServiceTest {
                 experience = Experience.HIGH,
             )
 
-        every { applicationRepository.findBySchoolNumber(request.schoolNumber) } returns null
+        every { applicationRepository.existsBySchoolNumber(request.schoolNumber) } returns false
         every { applicationRepository.save(any()) } returns
             Application(
                 name = request.name,
@@ -80,7 +71,7 @@ class InternApplicationServiceTest {
 
         internApplicationService.applicationRegister(request)
 
-        verify(exactly = 1) { applicationRepository.findBySchoolNumber(request.schoolNumber) }
+        verify(exactly = 1) { applicationRepository.existsBySchoolNumber(request.schoolNumber) }
         verify(exactly = 1) { applicationRepository.save(any()) }
 
         println("테스트 성공, 예외 없이 정상적으로 수행됨")
