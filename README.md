@@ -61,4 +61,5 @@ erDiagram
     APPLICATION_TBL ||--|| HISTORY_TBL : "1대1 식별 관계"
     BATCH_TBL ||--o{ MAJOR_TBL : "1대N 식별 관계"
     BATCH_TBL ||--o{ EXPERIENCE_TBL : "1대N 식별 관계"
+    RECRUITMENT_TBL  ||--o{ RECRUITMENT_TAG_TBL : "1대N 식별 관계"
 ```
