@@ -13,10 +13,9 @@ class InternApplicationService(
 ) {
     @Transactional
     fun applicationRegister(request: InternApplicationRequest) {
-        val application =
-            applicationRepository.findBySchoolNumber(request.schoolNumber)?.let {
-                throw ApplicationAlreadyExistException
-            }
+        val isExist = applicationRepository.existsBySchoolNumber(request.schoolNumber)
+        if(isExist) throw ApplicationAlreadyExistException
+
         request.run {
             applicationRepository.save(
                 Application(
